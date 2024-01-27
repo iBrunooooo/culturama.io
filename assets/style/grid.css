@@ -1,0 +1,129 @@
+.banner {
+    display: grid;
+    gap: 1rem;
+}
+
+.banner img:nth-child(1) { /* Dessa forma, será selecionado o primeiro elemento filho do bloco; */
+    grid-column: 1/3; 
+}
+
+.banner img:nth-child(4) { /* Dessa forma, será selecionado o último elemento filho do bloco; */
+    grid-column: 2/3;
+    grid-row: 2/4;
+}
+
+.eventos__item {
+    display: grid;
+    grid-template-columns: 1fr auto; /* Determina a largura de cada coluna; */
+    grid-template-rows: auto repeat(2, 1fr) auto; /* Determina a altura de cada linha; */
+    grid-template-areas: /*  */
+        "imagem imagem"
+        "nome nome"
+        "data data"
+        "local botao"; /* Deseja áreas no grid, e determina quantas linhas e colunas essa área ocupará; */
+}
+
+.eventos__item img {
+    grid-area: imagem;
+}
+
+.eventos__item h3 {
+    grid-area: nome;
+    align-self: center;
+}
+
+.eventos__item h4 {
+    grid-area: data;
+}
+
+.eventos__item h5 {
+    grid-area: local;
+    align-self: end;
+}
+
+.eventos__item button {
+    grid-area: botao;
+}
+
+.agenda__item {
+    display: grid;
+}
+
+.agenda__item img {
+    grid-column: 1/ 3;
+}
+
+.agenda__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.agenda__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+}
+
+
+
+/* 
+    As propriedades "grid-column" e "grid-row" determinam a posição inicial e final que o elemento ocupará; 
+
+    Por isso devem ser informados dois valores separados por "/".
+
+    O primeiro valor representa a posição inicial; o segundo, a posição final.
+*/
+
+@media screen and (min-width: 720px) {
+    
+    .banner {
+        grid-template-columns: calc(50% - 0.75rem) auto auto; /* Determina a largura de cada coluna; */
+        column-gap: 1.5rem;
+    }
+
+    .banner img:nth-child(1) { /* Dessa forma, será selecionado o primeiro elemento filho do bloco; */
+        grid-column: 1/2; 
+        grid-row: 1/3;
+    }
+    
+    .banner img:nth-child(4) { /* Dessa forma, será selecionado o último elemento filho do bloco; */
+        grid-column: 3/4;
+        grid-row: 1/3;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    
+    .categorias {
+        display: grid;
+        grid-template-areas:
+        "titulo titulo"
+        "lista destaque"
+        "lista imagem";
+        row-gap: 1rem;
+        column-gap: 1.5rem;
+        grid-template-columns: calc(50% - 0.75rem);
+        grid-template-rows: auto 1fr auto;
+    }
+    
+    .categorias__titulo {
+        grid-area: titulo;
+    }
+    
+    .categorias__lista {
+        grid-area: lista;
+        }
+    
+    .categorias__destaques {
+        grid-area: destaque;
+    }
+    
+    .categorias__imagem {
+        grid-area: imagem;
+    }
+
+}
+
+
+    
